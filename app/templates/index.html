@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Assignment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Webhook- Action</h1><br>
+        {% if actions.action =='Push' %}
+        <h3><i>{{actions.author}}</i> pushed to <i>{{actions.to_branch}}</i> on <i>{{actions.timestamp}}</i></h3>
+        {% elif actions.action =='Pull Request' %}
+        <h3><i>{{actions.author}}</i> submitted a pull request from <i>{{actions.from_branch}}</i> to
+            <i>{{actions.to_branch}}</i> on <i>{{actions.timestamp}}</i></h3>
+        {% else %}
+        <h3><i>{{actions.author}}</i> merged branch <i>{{actions.from_branch}}</i> to <i>{{actions.to_branch}}</i> on
+            <i>{{actions.timestamp}}</i></h3>
+        {% endif %}
+    </div>
+</body>
+
+</html>
